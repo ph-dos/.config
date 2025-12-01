@@ -3,7 +3,7 @@
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+# after-startup-command = []
 
 # Start AeroSpace at login
 start-at-login = true
@@ -37,7 +37,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
-# Possible values: (qwerty|dvorak|colemak)
+# Possible values: (qwerty|dvorak|colemak
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
     preset = 'qwerty'

@@ -13,21 +13,20 @@ source "${ZINIT_HOME}/zinit.zsh"
 # plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit snippet OMZL::git.zsh
+
+# suggestions
+zinit snippet OMZP::rust
+zinit snippet OMZP::uv
 zinit snippet OMZP::git
+zinit snippet OMZP::docker
+zinit snippet OMZP::docker-compose
+zinit snippet OMZP::kubectl
 
-# short cuts
-alias vi='nvim'
-alias ls='eza --icons -lh'
-alias lc='leetcode'
-alias ta='tmux attach'
-compdef _ls ls
-
-# features
+# zsh native stuff
 HISTSIZE=2000
 SAVEHIST=2000
 HISTDUP=erase
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.cache/zsh/.zsh_history
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -37,11 +36,20 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 autoload -U compinit && compinit
+zinit cdreplay -q
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+
+# short cuts
+alias vi='nvim'
+alias ls='eza --icons -lh'
+alias lc='leetcode'
+alias ta='tmux attach'
+alias fd='find'
+alias dockerd='colima start'
 
 # keybinds
 bindkey '^y' autosuggest-accept
@@ -53,3 +61,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # external
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+export PATH="$HOME/Library/Python/3.14/bin:$PATH"
