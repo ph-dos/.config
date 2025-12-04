@@ -50,6 +50,7 @@ alias lc='leetcode'
 alias ta='tmux attach'
 alias fd='find'
 alias dockerd='colima start'
+alias k8s='kubectl'
 
 # keybinds
 bindkey '^y' autosuggest-accept
@@ -61,4 +62,3 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # external
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-export PATH="$HOME/Library/Python/3.14/bin:$PATH"
