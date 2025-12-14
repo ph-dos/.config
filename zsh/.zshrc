@@ -62,3 +62,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # external
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+source <(kubectl completion zsh)
