@@ -45,7 +45,7 @@ _comp_options+=(globdots)
 
 # short cuts
 alias vi='nvim'
-alias ls='echo; eza --icons -lh'
+alias ls='eza --icons -lh'
 alias lc='leetcode'
 alias ta='tmux attach'
 alias fd='find'
@@ -63,3 +63,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source <(kubectl completion zsh)
+fpath=(~/.config/zsh/completion $fpath)  # add your completion folder to fpath
+autoload -Uz _kubebuilder          # tell zsh to load the function
+compdef _kubebuilder kubebuilder   # associate function with kubebuilder command
