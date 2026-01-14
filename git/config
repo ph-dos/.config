@@ -6,7 +6,7 @@
 [pull]
 	rebase = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [user]
-	name = Ph-Dos
-	email = phm47860@uga.edu
+	name = ph-dos
+	email = phm4860@uga.edu
