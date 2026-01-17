@@ -63,6 +63,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source <(kubectl completion zsh)
-fpath=(~/.config/zsh/completion $fpath)  # add your completion folder to fpath
-autoload -Uz _kubebuilder          # tell zsh to load the function
-compdef _kubebuilder kubebuilder   # associate function with kubebuilder command
+fpath=(~/.config/zsh/completion $fpath)  	# add your completion folder to fpath
+autoload -Uz _kubebuilder          			# tell zsh to load the function
+compdef _kubebuilder kubebuilder   			# associate function with kubebuilder command
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
