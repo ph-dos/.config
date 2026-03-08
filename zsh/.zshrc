@@ -19,7 +19,6 @@ zinit snippet OMZP::rust
 zinit snippet OMZP::uv
 zinit snippet OMZP::git
 zinit snippet OMZP::docker
-zinit snippet OMZP::docker-compose
 zinit snippet OMZP::kubectl
 
 # zsh native stuff
@@ -43,7 +42,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# short cuts
+# binds
 alias vi='nvim'
 alias ls='eza --icons -lh'
 alias lc='leetcode'
@@ -67,4 +66,4 @@ fpath=(~/.config/zsh/completion $fpath)  	# add your completion folder to fpath
 autoload -Uz _kubebuilder          			# tell zsh to load the function
 compdef _kubebuilder kubebuilder   			# associate function with kubebuilder command
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
-export GOPATH=$HOME/code/go
+export GOPATH="$HOME/code/go"
