@@ -46,7 +46,7 @@ _comp_options+=(globdots)
 
 # alias
 alias vi='nvim'
-alias ls='eza --icons -lh && echo'
+alias ls='eza --icons -lh'
 alias ta='tmux attach'
 alias fd='find'
 
