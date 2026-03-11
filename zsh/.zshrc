@@ -18,8 +18,10 @@ zinit light zsh-users/zsh-autosuggestions
 zinit snippet OMZP::rust
 zinit snippet OMZP::uv
 zinit snippet OMZP::git
-zinit snippet OMZP::docker
-zinit snippet OMZP::kubectl
+
+# optional
+# zinit snippet OMZP::docker
+# zinit snippet OMZP::kubectl
 
 # zsh native stuff
 HISTSIZE=2000
@@ -42,14 +44,15 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# binds
+# alias
 alias vi='nvim'
-alias ls='eza --icons -lh'
-alias lc='leetcode'
+alias ls='eza --icons -lh && echo ""'
 alias ta='tmux attach'
 alias fd='find'
-alias dockerd='colima start'
-alias k8s='kubectl'
+
+# optional
+# alias k8s='kubectl'
+# alias dockerd='colima start'
 
 # keybinds
 bindkey '^y' autosuggest-accept
@@ -61,9 +64,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # source & imports
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-source <(kubectl completion zsh)
-fpath=(~/.config/zsh/completion $fpath)  	# add your completion folder to fpath
-autoload -Uz _kubebuilder          			# tell zsh to load the function
-compdef _kubebuilder kubebuilder   			# associate function with kubebuilder command
-export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+fpath=(~/.config/zsh/completion $fpath)
 export GOPATH="$HOME/code/go"
+
+# optional
+# source <(kubectl completion zsh)
+# autoload -Uz _kubebuilder
+# compdef _kubebuilder kubebuilder
+# export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
