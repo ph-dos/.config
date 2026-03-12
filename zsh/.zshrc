@@ -49,6 +49,7 @@ alias vi='nvim'
 alias ls='eza --icons -lh'
 alias ta='tmux attach'
 alias fd='find'
+alias claw='claude --permission-mode plan'
 
 # optional
 # alias k8s='kubectl'
@@ -62,6 +63,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # source & imports
+source ~/.api_keys
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 fpath=(~/.config/zsh/completion $fpath)
