@@ -18,8 +18,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit snippet OMZP::rust
 zinit snippet OMZP::uv
 zinit snippet OMZP::git
-
-# optional
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
 
@@ -50,27 +48,29 @@ alias ls='eza --icons -lh'
 alias ta='tmux attach'
 alias fd='find'
 alias claw='claude --permission-mode plan'
-
-# optional
 # alias k8s='kubectl'
 # alias dockerd='colima start'
 
-# keybinds
+# CL keybinds
 bindkey '^y' autosuggest-accept
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# source & imports
-source ~/.api_keys
+# shell
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 fpath=(~/.config/zsh/completion $fpath)
-export GOPATH="$HOME/code/go"
-
+[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# export GOPATH="$HOME/code/go"
 # optional
 # source <(kubectl completion zsh)
 # autoload -Uz _kubebuilder
 # compdef _kubebuilder kubebuilder
 # export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+
+# local config
+source ~/.api_keys
+export HOMEBREW_INSTALL_CLEANUP=1
+export CLAUDE_TELEMETRY_OPTOUT=1
