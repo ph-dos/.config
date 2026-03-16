@@ -7,6 +7,6 @@
 !zsh/
 !zsh/.zshrc
 !git/
-!/git/config
+!git/config
 !starship.toml
 !.gitignore
