@@ -72,5 +72,3 @@ fpath=(~/.config/zsh/completion $fpath)
 
 # local config
 source ~/.api_keys
-export HOMEBREW_INSTALL_CLEANUP=1
-export CLAUDE_TELEMETRY_OPTOUT=1
