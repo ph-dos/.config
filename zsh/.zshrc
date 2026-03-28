@@ -15,24 +15,23 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # suggestions
-zinit snippet OMZP::rust
-zinit snippet OMZP::uv
 zinit snippet OMZP::git
+
+# optional
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
+zinit snippet OMZP::rust
+zinit snippet OMZP::uv
 
-# zsh native stuff
-HISTSIZE=2000
-SAVEHIST=2000
-HISTDUP=erase
+# command history
+HISTSIZE=6000
+SAVEHIST=6000
 HISTFILE=~/.cache/zsh/.zsh_history
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
 
 autoload -U compinit && compinit
 zinit cdreplay -q
@@ -47,9 +46,11 @@ alias vi='nvim'
 alias ls='eza --icons -lh'
 alias ta='tmux attach'
 alias fd='find'
-alias claw='claude --permission-mode plan'
+
+# optional
 # alias k8s='kubectl'
 # alias dockerd='colima start'
+alias claw='claude --permission-mode plan'
 
 # CL keybinds
 bindkey '^y' autosuggest-accept
@@ -62,15 +63,14 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 fpath=(~/.config/zsh/completion $fpath)
-[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-export GOPATH="$HOME/code/go"
 
 # optional
 # source <(kubectl completion zsh)
 # autoload -Uz _kubebuilder
 # compdef _kubebuilder kubebuilder
 # export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+export GOPATH=$HOME/code/go
 
 # local config
 source ~/.api_keys
-test -r '/Users/ink/.opam/opam-init/init.sh' && . '/Users/ink/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
