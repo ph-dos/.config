@@ -71,6 +71,7 @@ fpath=(~/.config/zsh/completion $fpath)
 # export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 [[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 export GOPATH=$HOME/code/go
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # local config
 source ~/.api_keys
