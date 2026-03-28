@@ -63,7 +63,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 fpath=(~/.config/zsh/completion $fpath)
 [[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# export GOPATH="$HOME/code/go"
+export GOPATH="$HOME/code/go"
+
 # optional
 # source <(kubectl completion zsh)
 # autoload -Uz _kubebuilder
@@ -72,3 +73,4 @@ fpath=(~/.config/zsh/completion $fpath)
 
 # local config
 source ~/.api_keys
+test -r '/Users/ink/.opam/opam-init/init.sh' && . '/Users/ink/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
