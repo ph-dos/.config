@@ -71,4 +71,4 @@ export GOPATH=$HOME/code/go
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 # local config
-source ~/.api_keys
+source ~/.env.local
