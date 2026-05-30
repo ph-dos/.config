@@ -1,5 +1,7 @@
 *
 
+!aerospace/
+!aerospace/**
 !kitty/
 !kitty/**
 !tmux/
