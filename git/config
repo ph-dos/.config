@@ -1,7 +1,7 @@
 [alias]
 	co = checkout
 	br = branch
-	ci = commit
+	cm = commit
 	st = status
 [pull]
 	rebase = true
