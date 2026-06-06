@@ -13,12 +13,11 @@ zinit light zsh-users/zsh-autosuggestions
 
 # suggestions
 zinit snippet OMZP::git
-
-# optional
+zinit snippet OMZP::uv
+zinit snippet OMZP::gcloud
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
-zinit snippet OMZP::rust
-zinit snippet OMZP::uv
+# zinit snippet OMZP::rust
 
 # command history
 HISTSIZE=6000
@@ -61,7 +60,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 fpath=(~/.config/zsh/completion $fpath)
 
-# optional
 # source <(kubectl completion zsh)
 # autoload -Uz _kubebuilder
 # compdef _kubebuilder kubebuilder
