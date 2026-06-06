@@ -14,7 +14,6 @@ zinit light zsh-users/zsh-autosuggestions
 # suggestions
 zinit snippet OMZP::git
 zinit snippet OMZP::uv
-zinit snippet OMZP::gcloud
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
 # zinit snippet OMZP::rust
