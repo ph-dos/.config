@@ -1,4 +1,4 @@
-# zinit set up
+# zinit
 if [[ -f "/opt/homebrew/bin/brew" ]]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -11,12 +11,35 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
-# suggestions
+# completions
 zinit snippet OMZP::git
 zinit snippet OMZP::uv
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
 # zinit snippet OMZP::rust
+
+source <(fzf --zsh)
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+# source <(kubectl completion zsh)
+# autoload -Uz _kubebuilder
+# compdef _kubebuilder kubebuilder
+[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
+# add to path
+fpath=(~/.config/zsh/completion $fpath)
+export GOPATH=$HOME/code/go
+export PATH="$PATH:$(go env GOPATH)/bin"
+# export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+
+# command config
+autoload -U compinit && compinit
+zinit cdreplay -q
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 # command history
 HISTSIZE=6000
@@ -28,44 +51,21 @@ setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
-autoload -U compinit && compinit
-zinit cdreplay -q
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
-
-# alias
-alias vi='nvim'
-alias ls='eza --icons -lh'
-alias ta='tmux attach'
-alias fd='find'
-
-# optional
-# alias k8s='kubectl'
-# alias dockerd='colima start'
-alias claw='claude --permission-mode plan'
-
-# CL keybinds
+# vim keybinds
 bindkey '^y' autosuggest-accept
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# shell
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-fpath=(~/.config/zsh/completion $fpath)
+# alias
+alias vi='nvim'
+alias ls='eza --icons -lh'
+alias ta='tmux attach'
+alias fd='find'
+alias claw='claude'
+# alias k8s='kubectl'
+# alias dockerd='colima start'
 
-# source <(kubectl completion zsh)
-# autoload -Uz _kubebuilder
-# compdef _kubebuilder kubebuilder
-# export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
-[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-export GOPATH=$HOME/code/go
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-# local config
+# envvars
 source ~/.env.local
