@@ -25,6 +25,8 @@ zstyle ':fzf-tab:*' fzf-flags \
   --color=header:#fd6883,marker:#adda78,fg+:#f1e5e7,prompt:#f38d70 \
   --color=info:#f1e5e7,pointer:#f38d70,hl:#a6a6a6,hl+:#a6a6a6 \
   --color=border:#595959,gutter:#101010
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept'
+zstyle ':fzf-tab:*' accept-line ctrl-y
 
 # completions
 zinit snippet OMZP::git
@@ -58,7 +60,8 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 # keybinds
-bindkey '^f' fzf-file-widget
+bindkey '^f' forward-word
+bindkey '^b' backward-word
 bindkey '^y' autosuggest-accept
 
 # alias
