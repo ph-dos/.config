@@ -53,7 +53,6 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 HISTSIZE=6000
 SAVEHIST=6000
 HISTFILE=~/.cache/zsh/.zsh_history
-setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
