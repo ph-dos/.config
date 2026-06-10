@@ -53,8 +53,10 @@ automatically-unhide-macos-hidden-apps = true
 [mode.main.binding]
 
     alt-b = 'exec-and-forget open -n "/Applications/Zen.app"'
+    alt-f= 'exec-and-forget open /Users/ink/Downloads/'
     alt-enter = ['workspace 5', 'exec-and-forget open -a "/Applications/kitty.app"']
     alt-n = ['workspace 4', 'exec-and-forget open -a Notes']
+
     alt-w = 'close --quit-if-last-window'
 
     # All possible keys:
