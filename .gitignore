@@ -12,3 +12,5 @@
 !git/config
 !starship.toml
 !.gitignore
+!Brewfile
+!macos.sh

@@ -1,4 +1,3 @@
-# zinit & setup
 if [[ -f "/opt/homebrew/bin/brew" ]]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -12,7 +11,6 @@ zinit cdreplay -q
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
-compinit
 _comp_options+=(globdots)
 
 # plugins
@@ -31,9 +29,9 @@ zstyle ':fzf-tab:*' accept-line ctrl-y
 # completions
 zinit snippet OMZP::git
 zinit snippet OMZP::uv
+zinit snippet OMZP::rust
 # zinit snippet OMZP::docker
 # zinit snippet OMZP::kubectl
-# zinit snippet OMZP::rust
 
 source <(fzf --zsh)
 eval "$(starship init zsh)"
@@ -43,10 +41,10 @@ eval "$(zoxide init zsh)"
 # compdef _kubebuilder kubebuilder
 [[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
-# add to path
-fpath=(~/.config/zsh/completion $fpath)
+# path
 export GOPATH=$HOME/code/go
-export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$GOPATH/bin:$PATH"
+source "$HOME/.cargo/env"
 # export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 
 # command history
