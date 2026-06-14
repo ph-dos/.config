@@ -23,7 +23,7 @@ fi
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 brew --version
-rustup --version
+rustc --version
 cargo --version
 
 brew trust nikitabobko/tap

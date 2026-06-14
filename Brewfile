@@ -5,8 +5,6 @@ brew "colima"
 brew "docker", link: false
 # Modern, maintained replacement for ls
 brew "eza"
-# Simple, fast and user-friendly alternative to find
-brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
@@ -37,11 +35,8 @@ brew "typst"
 brew "unzip"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
-# Internet file retriever
-brew "wget"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-brew "rustup"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
 # Terminal-based AI coding assistant
