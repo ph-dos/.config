@@ -44,8 +44,8 @@ eval "$(zoxide init zsh)"
 # path
 export GOPATH=$HOME/code/go
 export PATH="$GOPATH/bin:$PATH"
+export PATH="/Users/ink/.local/bin:$PATH"
 source "$HOME/.cargo/env"
-# export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 
 # command history
 HISTSIZE=6000
