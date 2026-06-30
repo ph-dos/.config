@@ -63,7 +63,7 @@ bindkey '^y' autosuggest-accept
 
 # alias
 alias vi='nvim'
-alias ls='eza --icons -lh'
+alias ls='eza -1 --icons --group-directories-first'
 alias ta='tmux attach'
 alias fd='find'
 alias claw='claude'
