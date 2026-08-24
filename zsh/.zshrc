@@ -16,15 +16,7 @@ _comp_options+=(globdots)
 # plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-
 zinit light Aloxaf/fzf-tab
-zstyle ':fzf-tab:*' fzf-flags \
-  --color=bg+:#2c2525,bg:#101010,spinner:#f38d70,fg:#e6d9db \
-  --color=header:#fd6883,marker:#adda78,fg+:#f1e5e7,prompt:#f38d70 \
-  --color=info:#f1e5e7,pointer:#f38d70,hl:#a6a6a6,hl+:#a6a6a6 \
-  --color=border:#595959,gutter:#101010
-zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept'
-zstyle ':fzf-tab:*' accept-line ctrl-y
 
 # completions
 zinit snippet OMZP::git
@@ -39,7 +31,7 @@ eval "$(zoxide init zsh)"
 # source <(kubectl completion zsh)
 # autoload -Uz _kubebuilder
 # compdef _kubebuilder kubebuilder
-[[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# [[ ! -r '/Users/ink/.opam/opam-init/init.zsh' ]] || source '/Users/ink/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
 # path
 export GOPATH=$HOME/code/go
@@ -72,8 +64,33 @@ alias cla='claude'
 
 # envvars
 source ~/.env.local
-export FZF_DEFAULT_OPTS="
+_fzf_dark="
   --color=bg+:#2c2525,bg:#101010,spinner:#f38d70,fg:#e6d9db
   --color=header:#fd6883,marker:#adda78,fg+:#f1e5e7,prompt:#f38d70
   --color=info:#f1e5e7,pointer:#f38d70,hl:#a6a6a6,hl+:#a6a6a6
   --color=border:#595959,gutter:#101010,query:#e6d9db"
+_fzf_light="
+  --color=bg+:#e6e1d3,bg:#f5efe6,spinner:#91a77a,fg:#2b3034
+  --color=header:#8f4d50,marker:#91a77a,fg+:#2b3034,prompt:#91a77a
+  --color=info:#576869,pointer:#91a77a,hl:#829084,hl+:#829084
+  --color=border:#ceccbd,gutter:#f5efe6,query:#2b3034"
+
+# AppleInterfaceStyle only exists in dark mode
+if defaults read -g AppleInterfaceStyle &>/dev/null; then
+	export FZF_DEFAULT_OPTS="$_fzf_dark"
+	zstyle ':fzf-tab:*' fzf-flags \
+	  --color=bg+:#2c2525,bg:#101010,spinner:#f38d70,fg:#e6d9db \
+	  --color=header:#fd6883,marker:#adda78,fg+:#f1e5e7,prompt:#f38d70 \
+	  --color=info:#f1e5e7,pointer:#f38d70,hl:#a6a6a6,hl+:#a6a6a6 \
+	  --color=border:#595959,gutter:#101010
+	zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept'
+	zstyle ':fzf-tab:*' accept-line ctrl-y
+else
+	export FZF_DEFAULT_OPTS="$_fzf_light"
+	zstyle ':fzf-tab:*' fzf-flags \
+	  --color=bg+:#e6e1d3,bg:#f5efe6,spinner:#91a77a,fg:#2b3034 \
+	  --color=header:#8f4d50,marker:#91a77a,fg+:#2b3034,prompt:#91a77a \
+	  --color=info:#576869,pointer:#91a77a,hl:#829084,hl+:#829084 \
+	  --color=border:#ceccbd,gutter:#f5efe6
+fi
+unset _fzf_dark _fzf_light
