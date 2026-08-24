@@ -9,7 +9,8 @@ success_symbol = "[❯](bold white)"
 [directory]
 truncation_length = 3
 truncation_symbol = "../"
-repo_root_style = "bold"
+style = "white"
+repo_root_style = "white"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
@@ -18,7 +19,7 @@ style = "italic"
 
 [git_status]
 format     = '[$all_status]($style)'
-style      = "white"
+style      = "bold white"
 ahead      = "⇡${count} "
 diverged   = "${ahead_count}⇣${behind_count} "
 behind     = "⇣${count} "
