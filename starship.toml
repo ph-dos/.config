@@ -19,7 +19,7 @@ style = "italic"
 
 [git_status]
 format     = '[$all_status]($style)'
-style      = "bold white"
+style      = "white"
 ahead      = "⇡${count} "
 diverged   = "${ahead_count}⇣${behind_count} "
 behind     = "⇣${count} "
