@@ -70,10 +70,10 @@ _fzf_dark="
   --color=info:#f1e5e7,pointer:#f38d70,hl:#a6a6a6,hl+:#a6a6a6
   --color=border:#595959,gutter:#101010,query:#e6d9db"
 _fzf_light="
-  --color=bg+:#e6e1d3,bg:#f5efe6,spinner:#91a77a,fg:#2b3034
-  --color=header:#8f4d50,marker:#91a77a,fg+:#2b3034,prompt:#91a77a
-  --color=info:#576869,pointer:#91a77a,hl:#829084,hl+:#829084
-  --color=border:#ceccbd,gutter:#f5efe6,query:#2b3034"
+  --color=bg+:#f9eabf,bg:#f9f5d7,spinner:#6c782e,fg:#654735
+  --color=header:#c14a4a,marker:#6c782e,fg+:#4f3829,prompt:#6c782e
+  --color=info:#7c6f64,pointer:#6c782e,hl:#b47109,hl+:#b47109
+  --color=border:#ebdbb2,gutter:#f9f5d7,query:#654735"
 
 # AppleInterfaceStyle only exists in dark mode
 if defaults read -g AppleInterfaceStyle &>/dev/null; then
@@ -88,9 +88,9 @@ if defaults read -g AppleInterfaceStyle &>/dev/null; then
 else
 	export FZF_DEFAULT_OPTS="$_fzf_light"
 	zstyle ':fzf-tab:*' fzf-flags \
-	  --color=bg+:#e6e1d3,bg:#f5efe6,spinner:#91a77a,fg:#2b3034 \
-	  --color=header:#8f4d50,marker:#91a77a,fg+:#2b3034,prompt:#91a77a \
-	  --color=info:#576869,pointer:#91a77a,hl:#829084,hl+:#829084 \
-	  --color=border:#ceccbd,gutter:#f5efe6
+	  --color=bg+:#f9eabf,bg:#f9f5d7,spinner:#6c782e,fg:#654735 \
+	  --color=header:#c14a4a,marker:#6c782e,fg+:#4f3829,prompt:#6c782e \
+	  --color=info:#7c6f64,pointer:#6c782e,hl:#b47109,hl+:#b47109 \
+	  --color=border:#ebdbb2,gutter:#f9f5d7
 fi
 unset _fzf_dark _fzf_light
