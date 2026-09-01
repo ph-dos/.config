@@ -37,6 +37,7 @@ eval "$(zoxide init zsh)"
 export GOPATH=$HOME/code/go
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/Users/ink/.local/bin:$PATH"
+export PATH="$HOME/.elan/env:$PATH"
 source "$HOME/.cargo/env"
 
 # command history
